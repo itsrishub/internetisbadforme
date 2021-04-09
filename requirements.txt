@@ -1,0 +1,3 @@
+cloudscraper
+requests
+json5
