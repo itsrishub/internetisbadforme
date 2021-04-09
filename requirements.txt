@@ -1,3 +1,4 @@
 cloudscraper
 requests
 json5
+json
