@@ -1,9 +1,7 @@
 from flask import Flask
-import cloudscrapper
-import requests
-import json
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-  print("hello")
+@app.route("/")
+def home_view():
+    return "<h1>Welcome to Geeks for Geeks</h1>"
