@@ -9,19 +9,18 @@ app = Flask(__name__)
 def home_view():
 	email = input("Enter email\n\n")
 
-	# scraper = cloudscraper.create_scraper()
-	# jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/rishab@gmail.com").text
-	print(email)
-	# jsonData = json.loads(jsonGet)
+	scraper = cloudscraper.create_scraper()
+	jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/rishab@gmail.com").text
+	jsonData = json.loads(jsonGet)
 
-	# site = ""
+	site = ""
 
-	# for data in jsonData['Breaches']:
-	# 	site = data['Title']
-	# 	if data['Title']:
-	# 		print(data['Title'])
-	# 	else:
-	# 		print("Your email isn't breached!")
-	# 		break
+	for data in jsonData['Breaches']:
+		site = data['Title']
+		if data['Title']:
+			print(data['Title'])
+		else:
+			print("Your email isn't breached!")
+			break
 
-	# input("\n\n\n\nenter to exit...")
+	input("\n\n\n\nenter to exit...")
