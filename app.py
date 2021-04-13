@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def home_view():
-	email = input("Enter email\n\n")
+	# email = input("Enter email\n\n")
 
 	scraper = cloudscraper.create_scraper()
-	jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{email}").text
+	jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/rishab@gmail.com").text
 	jsonData = json.loads(jsonGet)
 
 	site = ""
@@ -23,4 +23,4 @@ def home_view():
 			print("Your email isn't breached!")
 			break
 
-	input("\n\n\n\nenter to exit...")
+	# input("\n\n\n\nenter to exit...")
