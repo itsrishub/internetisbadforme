@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home_view():
-	# email = input("Enter email\n\n")
+	email = input("Enter email\n\n")
 
-	scraper = cloudscraper.create_scraper()
-	jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/rishab@gmail.com").text
-	print(jsonGet)
+	# scraper = cloudscraper.create_scraper()
+	# jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/rishab@gmail.com").text
+	print(email)
 	# jsonData = json.loads(jsonGet)
 
 	# site = ""
