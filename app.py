@@ -1,7 +1,4 @@
 from flask import Flask
-import cloudscraper
-import requests
-import json
 
 app = Flask(__name__)
 
