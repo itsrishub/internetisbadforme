@@ -44,7 +44,7 @@ class ReusableForm(Form):
             print("nth")
         else:
             flash('All the form fields are required. ')
-        return render_template('hello.html', form=form)
+        return render_template('main.html', form=form)
 
 if __name__ == "__main__":
     app.run()
