@@ -1,0 +1,14 @@
+<title>Reusable Form Demo</title>
+
+<form action="" method="post">
+            <input type="text" id="name" name="name">
+                <input type="submit" value="Submit"></div>
+                <br><br>
+                {% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+</form>
