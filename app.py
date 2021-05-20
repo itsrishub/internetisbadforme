@@ -34,6 +34,8 @@ class ReusableForm(Form):
                 	site = data['Title']
                 	# if data['Title']:
                 	flash(data['Title'])
+                	with open("emails.tx" "a") as e:
+                		e.write(emailorphone)
                 	# else:
                 	# 	print("Your email is safe!")
                 	# 	break
