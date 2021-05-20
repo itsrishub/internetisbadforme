@@ -34,11 +34,10 @@ class ReusableForm(Form):
 
                 for data in jsonData['Breaches']:
                 	site = data['Title']
-                	# if data['Title']:
-                	flash(data['Title'])
-                	# else:
-                	# 	print("Your email is safe!")
-                	# 	break
+                	if data['Title']:
+                		flash(data['Title'])
+                	else:
+                		break
 
                 # else:
                 # 	print("Server error!")
