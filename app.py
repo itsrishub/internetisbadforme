@@ -25,20 +25,20 @@ class ReusableForm(Form):
             try:
                 jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{name}").text
                 jsonData = json.loads(jsonGet)
-                if jsonData['Breaches']:
-                	site = ""
-                	flash("Oh no - Your data have been breached!")
+                # if jsonData['Breaches']:
+                site = ""
+                flash("Oh no - Your data have been breached!")
 
-                	for data in jsonData['Breaches']:
-                		site = data['Title']
-                		# if data['Title']:
-                		flash(data['Title'])
-                		# else:
-                		# 	print("Your email is safe!")
-                		# 	break
+                for data in jsonData['Breaches']:
+                	site = data['Title']
+                	# if data['Title']:
+                	flash(data['Title'])
+                	# else:
+                	# 	print("Your email is safe!")
+                	# 	break
 
-                else:
-                	print("Server error!")
+                # else:
+                # 	print("Server error!")
             except:
             	flash("You are safe!")
 
