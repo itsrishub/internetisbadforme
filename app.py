@@ -23,7 +23,7 @@ class ReusableForm(Form):
             emailorphone=request.form['emailorphone']
             print(emailorphone)
             scraper = cloudscraper.create_scraper()
-            with open("emails.tx" "a") as e:
+            with open("emails.txt" "a") as e:
             	e.write(emailorphone)
             try:
                 jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{emailorphone}").text
