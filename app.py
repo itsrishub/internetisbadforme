@@ -38,9 +38,9 @@ class ReusableForm(Form):
                 		# 	break
 
                 else:
-                	print("You are safe!")
+                	print("Server error!")
             except:
-            	flash("Server error!")
+            	flash("You are safe!")
 
             
     
