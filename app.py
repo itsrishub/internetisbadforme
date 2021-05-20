@@ -3,6 +3,7 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 import cloudscraper
 import requests
 import json
+import re
 
 # App config.
 DEBUG = True
@@ -11,7 +12,7 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class ReusableForm(Form):
-    name = TextField('Name:', validators=[validators.required()])
+    emailorphone = TextField('Email or Phone:', validators=[validators.required()])
     
     @app.route("/", methods=['GET', 'POST'])
     def hello():
@@ -19,11 +20,11 @@ class ReusableForm(Form):
     
         print(form.errors)
         if request.method == 'POST':
-            name=request.form['name']
-            print(name)
+            emailorphone=request.form['emailorphone']
+            print(emailorphone)
             scraper = cloudscraper.create_scraper()
             try:
-                jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{name}").text
+                jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{emailorphone}").text
                 jsonData = json.loads(jsonGet)
                 # if jsonData['Breaches']:
                 site = ""
