@@ -5,7 +5,6 @@ import requests
 import json
 import re
 
-# App config.
 DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -28,28 +27,22 @@ class ReusableForm(Form):
             try:
                 jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{emailorphone}").text
                 jsonData = json.loads(jsonGet)
-                # if jsonData['Breaches']:
-                # site = ""
                 flash("Oh no - Your data have been breached!")
 
                 for data in jsonData['Breaches']:
-                    # site = data['Title']
-                    cleanr = re.compile(' <.* ?>')
-                    cleantext = re.sub(cleanr, '', data['Description'])
+                    # cleanr = re.compile(' <.* ?>')
+                    # cleantext = re.sub(cleanr, '', data['Description'])
                     if data['Title']:
-                        flash(f"{data['Title']} - {cleantext}")
+                        flash({data['Title']})
+                        # flash(f"{data['Title']} - {cleantext}")
                     else:
                         break
-
-                # else:
-                # 	print("Server error!")
             except:
             	flash("You are safe!")
 
             
     
         if form.validate():
-            # Save the comment here.
             pass
         else:
             flash('All the form fields are required. ')
