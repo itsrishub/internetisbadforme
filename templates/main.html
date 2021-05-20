@@ -1,7 +1,7 @@
 <title>internetisbadforme</title>
 
 <form action="" method="post">
-            <input type="text" id="name" name="name" pattern="([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$|^[0-9]{12})" required>
+            <input type="text" id="name" name="name" pattern="([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$|^[0-9]{12})" title="Three letter country code" required autocomplete="off">
                 <input type="submit" value="Submit"></div>
                 <br><br>
                 {% with messages = get_flashed_messages() %}  
