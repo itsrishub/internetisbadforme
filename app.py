@@ -33,7 +33,7 @@ class ReusableForm(Form):
                     # cleanr = re.compile(' <.* ?>')
                     # cleantext = re.sub(cleanr, '', data['Description'])
                     if data['Title']:
-                        flash({data['Title']})
+                        flash(data['Title'])
                         # flash(f"{data['Title']} - {cleantext}")
                     else:
                         break
