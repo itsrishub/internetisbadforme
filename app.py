@@ -34,8 +34,10 @@ class ReusableForm(Form):
 
                 for data in jsonData['Breaches']:
                 	# site = data['Title']
+                    cleanr = re.compile(' <.* ?>')
+                    cleantext = re.sub(cleanr, '', jsonData['Description'])
                 	if data['Title']:
-                		flash(data['Title'])
+                		flash(f"{data['Title']} - {cleantext}")
                 	else:
                 		break
 
