@@ -30,21 +30,21 @@ class ReusableForm(Form):
                 jsonData = json.loads(jsonGet)
                 # if jsonData['Breaches']:
                 # site = ""
-                flash("**Oh no - Your data have been breached!**")
+                flash("Oh no - Your data have been breached!")
 
                 for data in jsonData['Breaches']:
                     # site = data['Title']
                     cleanr = re.compile(' <.* ?>')
                     cleantext = re.sub(cleanr, '', data['Description'])
                     if data['Title']:
-                        flash(f"**{data['Title']}** - {cleantext}")
+                        flash(f"{data['Title']} - {cleantext}")
                     else:
                         break
 
                 # else:
                 # 	print("Server error!")
             except:
-            	flash("**You are safe!**")
+            	flash("You are safe!")
 
             
     
