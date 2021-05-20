@@ -40,7 +40,7 @@ class ReusableForm(Form):
                 # else:
                 # 	print("Server error!")
             except:
-            	flash("You are safe!")
+            	flash("You are safe! or invalid input.")
 
             
     
