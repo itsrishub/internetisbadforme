@@ -30,7 +30,7 @@ class ReusableForm(Form):
                 jsonData = json.loads(jsonGet)
                 # if jsonData['Breaches']:
                 # site = ""
-                flash("Oh no - Your data have been breached!")
+                flash("**Oh no - Your data have been breached!**")
 
                 for data in jsonData['Breaches']:
                     # site = data['Title']
@@ -44,13 +44,13 @@ class ReusableForm(Form):
                 # else:
                 # 	print("Server error!")
             except:
-            	flash("You are safe!")
+            	flash("**You are safe!**")
 
             
     
         if form.validate():
             # Save the comment here.
-            print("nth")
+            pass
         else:
             flash('All the form fields are required. ')
         return render_template('main.html', form=form)
