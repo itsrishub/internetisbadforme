@@ -33,13 +33,13 @@ class ReusableForm(Form):
                 flash("Oh no - Your data have been breached!")
 
                 for data in jsonData['Breaches']:
-                	# site = data['Title']
+                    # site = data['Title']
                     cleanr = re.compile(' <.* ?>')
                     cleantext = re.sub(cleanr, '', jsonData['Description'])
-                	if data['Title']:
-                		flash(f"{data['Title']} - {cleantext}")
-                	else:
-                		break
+                    if data['Title']:
+                        flash(f"{data['Title']} - {cleantext}")
+                    else:
+                        break
 
                 # else:
                 # 	print("Server error!")
