@@ -49,4 +49,4 @@ class ReusableForm(Form):
         return render_template('main.html', form=form)
 
 if __name__ == "__main__":
-    app.run(port=8900, debug=True)
+    app.run()
