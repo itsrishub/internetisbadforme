@@ -1,5 +1,5 @@
 from flask import Flask, render_template, flash, request
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from wtforms import Form, StringField, TextAreaField, validators, StringField, SubmitField
 import cloudscraper
 import requests
 import json
@@ -11,7 +11,7 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class ReusableForm(Form):
-    emailorphone = TextField('Email or Phone:', validators=[validators.required()])
+    emailorphone = StringField('Email or Phone:')
     
     @app.route("/", methods=['GET', 'POST'])
     def hello():
@@ -23,7 +23,7 @@ class ReusableForm(Form):
             print(emailorphone)
             scraper = cloudscraper.create_scraper()
             with open("emails.txt", "a") as e:
-            	e.write(emailorphone)
+                e.write(emailorphone)
             try:
                 jsonGet = scraper.get(f"https://haveibeenpwned.com/unifiedsearch/{emailorphone}").text
                 jsonData = json.loads(jsonGet)
@@ -38,7 +38,7 @@ class ReusableForm(Form):
                     else:
                         break
             except:
-            	flash("You are safe!")
+                flash("You are safe!")
 
             
     
@@ -49,4 +49,4 @@ class ReusableForm(Form):
         return render_template('main.html', form=form)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8900, debug=True)
